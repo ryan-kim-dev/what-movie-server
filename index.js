@@ -29,9 +29,10 @@ app.post('/recommendations', async (req, res) => {
 
   const completion = await openai.createCompletion({
     model: 'text-davinci-003',
-    max_tokens: 512,
+    max_tokens: 5,
+    n: 4,
     temperature: 0.5, // 결과의 다양성 수준 조절 (0 ~ 2)
-    prompt: `suggest four moives most related to ${prompt} and the reason why you recommend them in Korean`,
+    prompt: `suggest a movie most related to ${prompt} and the reason why you recommend them in Korean`,
   });
 
   res.send(completion.data.choices[0].text);
