@@ -15,7 +15,6 @@ const openai = new OpenAIApi(config);
 const app = express();
 app.use(cors());
 app.use(bodyParser.json());
-app.use(cors());
 
 // * 1. OpenAI에게 영화 추천 요청 응답을 위한 라우터
 app.post('/recommendations', async (req, res) => {
