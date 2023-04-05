@@ -31,7 +31,7 @@ app.post('/recommendations', async (req, res) => {
     model: 'text-davinci-003',
     max_tokens: 1000,
     temperature: 0.5, // 결과의 다양성 수준 조절 (0 ~ 2)
-    prompt: `suggest a movie most related to ${prompt} and the reason why you recommend them in Korean`,
+    prompt: `translate${prompt} and recommend a movie relates to translated${prompt}, and the reason why you recommend them in Korean language.`,
   });
 
   res.send(completion.data.choices[0].text);
