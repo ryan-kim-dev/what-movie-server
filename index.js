@@ -13,11 +13,7 @@ const openai = new OpenAIApi(config);
 
 // OpenAI & TMDB 요청의 프록시를 위한 express 서버 구현
 const app = express();
-app.use(
-  cors({
-    origin: ['http://localhost:3000', 'https://what-movie.vercel.app'],
-  })
-);
+app.options('*', cors());
 app.use(bodyParser.json());
 
 // * 1. OpenAI에게 영화 추천 요청 응답을 위한 라우터
