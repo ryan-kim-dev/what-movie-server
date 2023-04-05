@@ -21,6 +21,7 @@ app.use(
   })
 );
 app.use(bodyParser.json());
+app.options('*', cors());
 
 // * 1. OpenAI에게 영화 추천 요청 응답을 위한 라우터
 app.post('/recommendations', async (req, res) => {
