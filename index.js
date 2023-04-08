@@ -31,14 +31,14 @@ app.post('/recommendations', async (req, res) => {
     model: 'text-davinci-003',
     max_tokens: 150,
     temperature: 0.5, // 결과의 다양성 수준 조절 (0 ~ 2)
-    prompt: `translate${prompt} and recommend a four movies most realated to ${prompt} in Korean language.`,
+    prompt: `${prompt}와 관련된 영화 4개 추천해서 한국어로 응답해줘`,
   });
 
   res.send(completion.data.choices[0].text);
 });
 
-// * 2. TMDB에게 영화 정보 요청 응답을 위한 라우터
-app.post('/movies', async (req, res) => {});
+// * 2. TMDB에게 영화 정보 요청 응답을 위한 라우터 - 현재 미사용
+// app.post('/movies', async (req, res) => {});
 
 // 서버 설정 - 배포 시 포트 변동 대비
 const port = process.env.PORT || 8080;
